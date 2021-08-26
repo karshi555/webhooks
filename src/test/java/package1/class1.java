@@ -41,6 +41,7 @@ public class class1 {
 			driver = new FirefoxDriver();
 
 		}
+		//clear
 
 		driver.manage().window().maximize();
 
@@ -50,6 +51,7 @@ public class class1 {
 	public void tearDown() {
 
 		driver.quit();
+		//kkkkkk
 
 	}
 }
