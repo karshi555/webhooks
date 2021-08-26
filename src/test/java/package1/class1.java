@@ -35,6 +35,7 @@ public class class1 {
 			driver = new FirefoxDriver();
 
 		}
+		//clear
 
 		driver.manage().window().maximize();
 
