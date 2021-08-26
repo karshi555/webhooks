@@ -10,8 +10,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
+
+import com.beust.jcommander.Parameter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -21,15 +26,16 @@ public class class1 {
 
 	public String browser = "chrome";
 
-	@BeforeSuite
-	public void setUp() {
+	@Parameters("browser")
+	@BeforeClass
+	public void setUp(String br) {
 
-		if (browser.equals("chrome")) {
+		if (br.equals("chrome")) {
 
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 
-		} else if (browser.equals("firefox")) {
+		} else if (br.equals("firefox")) {
 
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
@@ -40,7 +46,7 @@ public class class1 {
 
 	}
 
-	@AfterSuite
+	@AfterClass
 	public void tearDown() {
 
 		driver.quit();
